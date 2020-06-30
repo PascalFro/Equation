@@ -14,6 +14,9 @@ require "users.php";
 require "platform1.php";
 require "platform2.php";
 
+// Stocker toutes les donnéess dans une seule variable pour les manipuler ensuite
+
+// Affichage de ce que l'on récupère pour vérif
 $result = array_merge($arrayPlatform1, $arrayPlatform2);
 echo "<pre>";
 //var_dump($result);
@@ -25,5 +28,26 @@ echo "<pre>";
 echo "</pre>";
 
 echo "<pre>";
-var_dump(array_values($tab));
+//var_dump(array_values($tab));
 echo "</pre>";
+
+
+//Comparer les tableaux
+//$compare = array_intersect_assoc($arrayUsers, $result);
+
+//Afficher les élémenets qui ont en commun la clé "tel"
+
+foreach ($tab as $users) {
+  if (is_array($users)) {
+    foreach ($users as $user => $value) {
+      if ((array_key_exists('tel', $users) )) {
+      echo $users[$user] . "<br>";
+    } else {
+      echo "Pas de correspondance<br>";
+    }
+    }
+  }
+
+}
+
+
